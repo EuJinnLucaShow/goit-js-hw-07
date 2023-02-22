@@ -48,7 +48,15 @@ galleryElements.addEventListener('click', event => {
 
     modal.show();
 
-    document.addEventListener('keydown', escapeListener);
+  document.addEventListener('keydown', escapeListener);
+  
+  // Закриваємо модальне вікно при кліку на велике зображення
+modal.element().addEventListener('click', event => {
+  if (event.target.nodeName === 'IMG') {
+    modal.close();
+  }
+});
+
 });
 
 // Закриваємо модаль після натискання клавіші Escape
